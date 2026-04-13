@@ -7,7 +7,6 @@ import "./index.css";
 import FooterSection from "./components/FooterSection";
 import SinglePostPage from "./components/moreBlogsSinglePost.jsx";
 import { Bounce, ToastContainer } from "react-toastify";
-import BlogPage from "./components/BlogPage";
 import SecondNavbar from "./components/SecondNavbar";
 import CategoriesPage from "./components/CategoriesPage";
 import ScrollToTopArrow from "./components/ScrollToTopArrow";
