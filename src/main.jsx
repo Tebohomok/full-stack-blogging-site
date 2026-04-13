@@ -42,21 +42,13 @@ function AppWrapper() {
 
       <Routes>
         {/* Authentication Routes */}
-        <Route path="/sign-up" element={<SignUpPage />} />
-        <Route path="/login" element={<LoginPage />} />
+     
         <Route path="/logout" element={<LogoutPage />} />
 
         {/* Redirect root to sign-up if not authenticated, otherwise to home */}
-        <Route path="/" element={
-          isAuthenticated ? <App /> : <Navigate to="/sign-up" replace />
-        } />
+        <Route path="/" element={<App />} />
 
-        {/* Protected Routes */}
-        <Route path="/single-post" element={
-          <ProtectedRoute>
-            <DefaultSinglePostPage />
-          </ProtectedRoute>
-        } />
+     
 
         <Route path="/single-post/:id" element={
           <ProtectedRoute>
@@ -70,27 +62,13 @@ function AppWrapper() {
           </ProtectedRoute>
         } />
 
-        <Route path="/categories" element={
-          <ProtectedRoute>
-            <CategoriesPage />
-          </ProtectedRoute>
-        } />
+    
 
-        <Route path="/contact" element={
-          <ProtectedRoute>
-            <ContactUsPage />
-          </ProtectedRoute>
-        } />
+      
 
-        <Route path="/search" element={
-          <ProtectedRoute>
-            <SearchPage />
-          </ProtectedRoute>
-        } />
 
         {/* Catch all - redirect to sign-up */}
-        <Route path="*" element={<Navigate to="/sign-up" replace />} />
-      </Routes>
+       <Route path="*" element={<Navigate to="/" replace />} />
 
       {/* Conditionally render SocialMediaGame for authenticated users only */}
       {isAuthenticated && location.pathname !== "/sign-up" && location.pathname !== "/login" && (
