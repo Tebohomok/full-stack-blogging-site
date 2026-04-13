@@ -20,68 +20,44 @@ function AppWrapper() {
 
   return (
     <>
-      {/* Reset scroll position on route change */}
-      <RouteScrollReset />
+    <RouteScrollReset />
 
-      {/* Only show navbar if user is authenticated */}
-      {isAuthenticated && <SecondNavbar />}
+    {isAuthenticated && <SecondNavbar />}
 
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        transition={Bounce}
-      />
+    <ToastContainer
+      position="top-right"
+      autoClose={3000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick={false}
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+      transition={Bounce}
+    />
 
-      <Routes>
-        {/* Authentication Routes */}
-     
-        <Route path="/logout" element={<LogoutPage />} />
+    <Routes>
+      <Route path="/" element={<App />} />
 
-        {/* Redirect root to sign-up if not authenticated, otherwise to home */}
-        <Route path="/" element={<App />} />
-
-     
-
-        <Route path="/single-post/:id" element={
+      <Route
+        path="/single-post/:id"
+        element={
           <ProtectedRoute>
             <SinglePostPage />
           </ProtectedRoute>
-        } />
+        }
+      />
 
-        <Route path="/blog" element={
-          <ProtectedRoute>
-            <BlogPage />
-          </ProtectedRoute>
-        } />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
 
-    
-
-      
-
-
-        {/* Catch all - redirect to sign-up */}
-       <Route path="*" element={<Navigate to="/" replace />} />
-
-      {/* Conditionally render SocialMediaGame for authenticated users only */}
-      {isAuthenticated && location.pathname !== "/sign-up" && location.pathname !== "/login" && (
-        <SocialMediaGame />
-      )}
-
-      {/* Scroll to top arrow is always shown */}
-      <ScrollToTopArrow />
-
-      {/* Show footer only if user is authenticated */}
-      {isAuthenticated && <FooterSection />}
-    </>
-  );
+    {isAuthenticated && <SocialMediaGame />}
+    <ScrollToTopArrow />
+    {isAuthenticated && <FooterSection />}
+  </>
+);
 }
 
 const root = createRoot(document.getElementById("root"));
