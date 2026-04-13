@@ -5,7 +5,6 @@ import App from './App.jsx'
 import "./index.css";
 import FooterSection from "./components/FooterSection";
 import SinglePostPage from "./components/moreBlogsSinglePost.jsx";
-import ContactUsPage from "./components/ContactUsPage.jsx";
 import { Bounce, ToastContainer } from "react-toastify";
 import BlogPage from "./components/BlogPage";
 import SecondNavbar from "./components/SecondNavbar";
