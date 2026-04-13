@@ -8,15 +8,9 @@ import FooterSection from "./components/FooterSection";
 import SinglePostPage from "./components/moreBlogsSinglePost.jsx";
 import { Bounce, ToastContainer } from "react-toastify";
 import SecondNavbar from "./components/SecondNavbar";
-import CategoriesPage from "./components/CategoriesPage";
 import ScrollToTopArrow from "./components/ScrollToTopArrow";
 import SocialMediaGame from './components/SocialMediaGame';
-import SignUpPage from "./components/SignUpPage";
-import LoginPage from "./components/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
-import SearchPage from "./components/SearchPage.jsx";
-import LogoutPage from "../components/LogoutPage.jsx";
-import DefaultSinglePostPage from "../components/DefaultSinglePostPage.jsx";
 import RouteScrollReset from "./components/RouteScrollReset.jsx";
 
 function AppWrapper() {
